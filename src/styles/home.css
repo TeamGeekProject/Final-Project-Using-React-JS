@@ -1,0 +1,45 @@
+body{
+    text-align: center;
+}
+
+.todos-container{
+    border: 1px solid black;
+    width: 25rem;
+    margin: auto;
+    
+}
+
+.todos-container-footer{
+    border-top: 1px solid blue;
+}
+
+.delete-button{
+    color:black;
+    margin-left: auto;
+    margin-right: 25px;
+    visibility: hidden;
+}
+
+ul{
+    padding: 1px;
+}
+li{
+    border-top: 1px solid blue;
+    padding: 1rem;
+    width: 100%;
+}
+li:last-child{
+    border-top: 1px solid blue;
+    padding-bottom: 0;
+    width: 100%;
+}
+
+
+li:hover span{
+    visibility: visible;
+}
+input{
+    border: none;
+    width: 100%;
+    
+}
