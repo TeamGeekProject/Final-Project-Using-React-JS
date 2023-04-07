@@ -1,3 +1,5 @@
+// import React, { useState, useEffect, useContext } from "react";
+import { Link } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -60,6 +62,12 @@ export const Todo = () => {
           </div>
         </div>
       </div>
-    </div>
+    <br/>
+    <div><Link to="/home">
+    <button className="btn btn-primary">Back home</button>
+  </Link></div>
+  <br/>
+  </div>
   );
 };
+
