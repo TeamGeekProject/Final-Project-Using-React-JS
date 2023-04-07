@@ -1,0 +1,45 @@
+
+.container{
+    background-color: ghostwhite;
+    margin-top : 20px;
+    /* width: auto; */
+    /* height: 700px; */
+}
+
+.Title{
+    text-align: center;
+    color: rgb(255, 105, 218);
+    font-family: 'Amatic SC', cursive;
+    font-size: 100px;
+}
+
+.itemFilter{
+    background-color: white;
+    outline-style: solid;
+    outline-color: gainsboro;
+    outline-width: 1px;
+    color: rgba(128, 128, 128, 0.74);
+    /* width: auto;
+    height: auto; */
+    font-family:monospace;
+    
+
+}
+
+.itemFilter:hover{
+    background-color: rgb(255, 105, 218);
+    color: white;
+    font-family: 'Amatic SC', cursive;
+    font-size: 20px;
+}
+
+
+.items-style{
+  
+    color: rgba(128, 128, 128, 0.74);
+    /* width: auto;
+    height: auto; */
+    font-family:monospace;
+    
+
+}

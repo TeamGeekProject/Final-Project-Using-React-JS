@@ -1,42 +1,23 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      list: ["turn in the project"]
+      todoListItems: ["Buy milk", "Buy eggs", "Buy bread", "Buy butter"],
     },
-
     actions: {
       // Use getActions to call a function within a fuction
-      addTask: (index, todo) => {
+      deletetodolistitem: (index) => {
         const store = getStore();
-		
-		store.list.push(todo)
-        console.log(store.list)
-
-        return (store.list)
+        const todoListItems = store.todoListItems.filter(
+          (item, i) => i !== index
+        );
+        setStore({ todoListItems: todoListItems });
       },
-	
-      removeTask: (todo) => {
+      addTodoListItem: (item) => {
         const store = getStore();
-
-        console.log("removeTask todo", todo);
-
-        function removeTodo(task) {
-          return (task != todo)
-        }
-
-        const filteredList = store.list.filter(removeTodo)
-
-        console.log("filteredList", filteredList)
-
-        console.log("store.list no changes yet", store.list)
-
-        store.list = filteredList
-
-        console.log("store.list", store.list)
-
-        return filteredList
-      }
-    }
+        const todoListItems = store.todoListItems.concat(item);
+        setStore({ todoListItems: todoListItems });
+      },
+    },
   };
 };
 export default getState;
