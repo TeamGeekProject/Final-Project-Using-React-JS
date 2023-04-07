@@ -11,7 +11,7 @@ export const Navbar = () => {
 			</Link>
 			<div className="ml-auto">
 				<Link to="/todo">
-					<button className="btn btn-primary">Check our Todo List</button>
+					<button className="btn btn-primary">Check out our Todo List</button>
 				</Link>
 			</div>
 		</nav>
