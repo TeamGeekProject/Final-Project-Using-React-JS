@@ -12,7 +12,7 @@ export const Todo = () => {
 
   return (
     <div className="container">
-      <h1 className="Title text-center">Todo List</h1>
+      <h1 className="Title text-center">Contact List</h1>
 
       <div className="conatiner-flex text-center ms-3">
         <div className="Task text-center ">
@@ -21,7 +21,7 @@ export const Todo = () => {
               <form>
                 <input
                   className="text-center form-control"
-                  placeholder="No tasks, add a task!"
+                  placeholder="Type in the Name Here"
                   type="text"
                   onKeyDown={(e) => {
                     if (e.key === "Enter") {
@@ -55,12 +55,20 @@ export const Todo = () => {
                 ))}
 
                 <div className="itemFilter rounded">
-                  <h2>{store.todoListItems.length} item/s left...</h2>
+                  <h2>{store.todoListItems.length} Contacts in your List</h2>
                 </div>
               </ul>
             </div>
           </div>
         </div>
+      </div>
+      <div>
+      <br/>
+      <Link to="/contact">
+        <span className="btn btn-primary btn-lg" href="#" role="button">
+          View your Contacts
+        </span>
+      </Link>
       </div>
     <br/>
     <div><Link to="/home">

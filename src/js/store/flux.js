@@ -1,7 +1,7 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      todoListItems: ["Buy milk", "Buy eggs", "Buy bread", "Buy butter"],
+      todoListItems: ["Raul", "Miguel", "Hernan", "Johanna"],
     },
     actions: {
       // Use getActions to call a function within a fuction

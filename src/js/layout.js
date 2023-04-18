@@ -5,6 +5,7 @@ import ScrollToTop from "./component/scrollToTop";
 import { Home } from "./views/home";
 import { Todo } from "./views/todo";
 import { Single } from "./views/single";
+import { Contact } from "./views/Contact";
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -26,6 +27,7 @@ const Layout = () => {
             <Route path="/todo" element={<Todo />} />
             <Route path="/single" element={<Single />} />
             <Route path="*" element={<Home />} />
+            <Route path="/contact" element={<Contact/>}/>
           </Routes>
           <Footer />
         </ScrollToTop>
