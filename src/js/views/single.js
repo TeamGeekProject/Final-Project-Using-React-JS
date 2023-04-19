@@ -15,11 +15,22 @@ export const Single = (props) => {
 
       <hr className="my-4" /> */}
       <h1>Team 4 Geeks</h1>
+      <br/>
+      <div>
+      <Link to="/contact">
+        <span className="btn btn-primary btn-lg" href="#" role="button">
+          View your Contacts
+        </span>
+      </Link>
+      </div>
+      <br/>
+      <div>
       <Link to="/home">
         <span className="btn btn-secondary btn-lg" href="#" role="button">
           Back to home page
         </span>
       </Link>
+      </div>
     </div>
   );
 };
