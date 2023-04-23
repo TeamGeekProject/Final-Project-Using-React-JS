@@ -1,44 +1,40 @@
-import React from "react";
-import "../../styles/home.css";
-//import { useContext, createContext, useState } from "react";
-//import { Context } from "../store/appContext";
+import React, { useState, useEffect, useContext } from "react";
+import PropTypes from "prop-types";
+import { Link, useParams } from "react-router-dom";
+import { Context } from "../store/appContext";
+import "../../styles/todo.css";
 
-export const Home = () => (
-  <div className="text-center mt-5">
-    <div className="row justify-content-center">
-      <div className="col-6">
-        <p>This project has been created by:</p>
+export const Home = (props) => {
+  const { store, actions } = useContext(Context);
+  const params = useParams();
+  return (
+    <div className="jumbotron">
+      {/* <h1 className="display-4">
+        3rd PAGE ---- This will show the demo element: {store.demo[params.theid].title}
+      </h1>
 
-        <div class="list-group">
-          <a
-            href="https://github.com/Balim1"
-            class="list-group-item list-group-item-action itemFilter"
-            aria-current="true"
-          >
-            Balim1
-          </a>
-          <a
-            href="https://github.com/joaarg86"
-            class="list-group-item list-group-item-action itemFilter"
-          >
-            joaarg86
-          </a>
-          <a
-            href="https://github.com/raulyfs11"
-            class="list-group-item list-group-item-action itemFilter"
-          >
-            raulyfs11
-          </a>
-          <a
-            href="https://github.com/spacemc2"
-            class="list-group-item list-group-item-action itemFilter"
-            tabindex="-1"
-            aria-disabled="true"
-          >
-            spacemc2
-          </a>
-        </div>
+      <hr className="my-4" /> */}
+      <h1>Team 4 Geeks</h1>
+      <br />
+      <div>
+        <Link to="/contact">
+          <span className="btn btn-primary btn-lg" href="#" role="button">
+            View your Contacts
+          </span>
+        </Link>
+      </div>
+      <br />
+      <div>
+        <Link to="/add">
+          <span className="btn btn-primary btn-lg" href="#" role="button">
+            Add a contact
+          </span>
+        </Link>
       </div>
     </div>
-  </div>
-);
+  );
+};
+
+Home.propTypes = {
+  match: PropTypes.object,
+};

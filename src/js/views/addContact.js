@@ -12,9 +12,9 @@ export const FormContact = () => {
 
   return (
     <div className="container">
-      <h1 className="Title text-center">Contact List</h1>
+      <h1 className="Title text-center">Create Contact</h1>
 
-      <div className="conatiner-flex text-center ms-3">
+      {/* <div className="conatiner-flex text-center ms-3">
         <div className="Task text-center ">
           <div className="row  justify-content-center">
             <div className="col-md-6 col-8">
@@ -61,15 +61,65 @@ export const FormContact = () => {
             </div>
           </div>
         </div>
+      </div> */}
+
+      <div className="row justify-content-center">
+        <div className="col-md-6">
+          <form class="row g-3 ">
+            <div class="col-12">
+              <label for="inputAddress" class="form-label">
+                Full Name
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputAddress"
+                placeholder="Full Name"
+              />
+            </div>
+            <div class="col-12">
+              <label for="inputAddress" class="form-label">
+                Email
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputAddress"
+                placeholder="Email"
+              />
+            </div>
+            <div class="col-12">
+              <label for="inputAddress" class="form-label">
+                Address
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputAddress"
+                placeholder="some@address.com "
+              />
+            </div>
+            <div class="col-12">
+              <label for="inputAddress" class="form-label">
+                Phone
+              </label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputAddress"
+                placeholder="(999) 999-9999"
+              />
+            </div>
+
+            <div class="col-12">
+              <button type="submit" class="btn btn-primary">
+                Sign in
+              </button>
+            </div>
+          </form>
+        </div>
       </div>
-      <div>
-        <br />
-        <Link to="/contact">
-          <span className="btn btn-primary btn-lg" href="#" role="button">
-            View your Contactsdddd
-          </span>
-        </Link>
-      </div>
+
       <br />
       <div>
         <Link to="/home">

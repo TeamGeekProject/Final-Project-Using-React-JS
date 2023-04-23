@@ -2,9 +2,9 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
+import { Who } from "./views/who";
 import { Home } from "./views/home";
-import { Single } from "./views/single";
-import { Contact } from "./views/Contact";
+import { Contact } from "./views/contact";
 import { FormContact } from "./views/addContact";
 
 import injectContext from "./store/appContext";
@@ -24,10 +24,10 @@ const Layout = () => {
         <ScrollToTop>
           <Navbar />
           <Routes>
-            <Route path="/home" element={<Home />} />
+            <Route path="/who" element={<Who />} />
             <Route path="/add" element={<FormContact />} />
-            <Route path="/single" element={<Single />} />
-            <Route path="*" element={<Home />} />
+            <Route path="/home" element={<Home />} />
+            <Route path="*" element={<Who />} />
             <Route path="/contact" element={<Contact />} />
           </Routes>
           <Footer />
