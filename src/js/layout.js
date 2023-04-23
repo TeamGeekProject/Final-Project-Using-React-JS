@@ -3,9 +3,10 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import ScrollToTop from "./component/scrollToTop";
 
 import { Home } from "./views/home";
-import { Todo } from "./views/todo";
 import { Single } from "./views/single";
 import { Contact } from "./views/Contact";
+import { FormContact } from "./views/addContact";
+
 import injectContext from "./store/appContext";
 
 import { Navbar } from "./component/navbar";
@@ -24,10 +25,10 @@ const Layout = () => {
           <Navbar />
           <Routes>
             <Route path="/home" element={<Home />} />
-            <Route path="/todo" element={<Todo />} />
+            <Route path="/add" element={<FormContact />} />
             <Route path="/single" element={<Single />} />
             <Route path="*" element={<Home />} />
-            <Route path="/contact" element={<Contact/>}/>
+            <Route path="/contact" element={<Contact />} />
           </Routes>
           <Footer />
         </ScrollToTop>

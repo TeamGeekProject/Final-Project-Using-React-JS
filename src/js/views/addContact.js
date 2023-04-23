@@ -7,7 +7,7 @@ import React, { useState, useEffect, useContext } from "react";
 
 import "../../styles/todo.css";
 
-export const Todo = () => {
+export const FormContact = () => {
   const { store, actions } = useContext(Context);
 
   return (
@@ -63,19 +63,20 @@ export const Todo = () => {
         </div>
       </div>
       <div>
-      <br/>
-      <Link to="/contact">
-        <span className="btn btn-primary btn-lg" href="#" role="button">
-          View your Contacts
-        </span>
-      </Link>
+        <br />
+        <Link to="/contact">
+          <span className="btn btn-primary btn-lg" href="#" role="button">
+            View your Contactsdddd
+          </span>
+        </Link>
       </div>
-    <br/>
-    <div><Link to="/home">
-    <button className="btn btn-primary">Back home</button>
-  </Link></div>
-  <br/>
-  </div>
+      <br />
+      <div>
+        <Link to="/home">
+          <button className="btn btn-primary">Back home</button>
+        </Link>
+      </div>
+      <br />
+    </div>
   );
 };
-
