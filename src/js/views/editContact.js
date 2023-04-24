@@ -1,5 +1,5 @@
 // import React, { useState, useEffect, useContext } from "react";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { Context } from "../store/appContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faXmark } from "@fortawesome/free-solid-svg-icons";
@@ -7,7 +7,8 @@ import React, { useState, useEffect, useContext } from "react";
 
 import "../../styles/todo.css";
 
-export const FormContact = () => {
+export const EditContact = () => {
+  const { contactID } = useParams();
   const { store, actions } = useContext(Context);
   const [sent, setSent] = useState(false); // this is the state that will be used to show the success message
   const [input, setInput] = useState({
@@ -17,9 +18,11 @@ export const FormContact = () => {
     phone: "",
   });
 
+  console.log(store);
+
   return (
     <div className="container">
-      <h1 className="Title text-center">Create Contact</h1>
+      <h1 className="Title text-center">Edit Contact</h1>
 
       <div className="row justify-content-center">
         <div className="col-md-6">
@@ -87,12 +90,12 @@ export const FormContact = () => {
                 type="submit"
                 onClick={(e) => {
                   e.preventDefault();
-                  actions.createContact(input);
+                  actions.updateContact(input, contactID);
                   setSent(true);
                 }}
                 className="btn btn-primary"
               >
-                Create
+                Edit
               </button>
             </div>
           </form>

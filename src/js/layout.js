@@ -6,6 +6,7 @@ import { Who } from "./views/who";
 import { Home } from "./views/home";
 import { Contact } from "./views/contact";
 import { FormContact } from "./views/addContact";
+import { EditContact } from "./views/editContact";
 
 import injectContext from "./store/appContext";
 
@@ -26,6 +27,7 @@ const Layout = () => {
           <Routes>
             <Route path="/who" element={<Who />} />
             <Route path="/add" element={<FormContact />} />
+            <Route path="/edit/:contactID" element={<EditContact />} />
             <Route path="/home" element={<Home />} />
             <Route path="*" element={<Who />} />
             <Route path="/contact" element={<Contact />} />

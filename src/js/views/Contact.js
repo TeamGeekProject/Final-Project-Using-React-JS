@@ -12,23 +12,27 @@ export const Contact = () => {
   return (
     <div>
       <h1>Archived Contacts</h1>
-      {store.todoListItems.map((item, index) => (
-        <li className="list-group-item rounded" key={index}>
-          <span className="float-start items-style">{item}</span>
-          <span
-            className="float-end text-danger"
-            onClick={() => {
-              actions.deleteTodoListItem(index);
-            }}
-          >
-            {" "}
-            <h1 className="x">X</h1>
-            {/* <FontAwesomeIcon icon={faXmarksLines}></FontAwesomeIcon> */}
-          </span>
-
-          <hr className="my-4" />
-        </li>
-      ))}
+      {store.contacts.map((item, index) => {
+        return (
+          <div key={index} className="card">
+            <div className="card-body">
+              <h5 className="card-title">{item.full_name}</h5>
+              <h6 className="card-subtitle mb-2 text-muted">{item.email}</h6>
+              <p className="card-text">{item.address}</p>
+              <p className="card-text">{item.phone}</p>
+              <Link to={"/edit/" + item.id}>
+                <button className="btn btn-primary">Edit</button>
+              </Link>
+              <button
+                className="btn btn-danger"
+                onClick={() => actions.deleteContact(item.id, index)}
+              >
+                Delete
+              </button>
+            </div>
+          </div>
+        );
+      })}
     </div>
   );
 };
