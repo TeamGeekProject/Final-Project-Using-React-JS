@@ -92,7 +92,7 @@ export const FormContact = () => {
                 }}
                 className="btn btn-primary"
               >
-                Create!
+                Create
               </button>
             </div>
           </form>
