@@ -9,110 +9,89 @@ import "../../styles/todo.css";
 
 export const FormContact = () => {
   const { store, actions } = useContext(Context);
+  const [sent, setSent] = useState(false); // this is the state that will be used to show the success message
+  const [input, setInput] = useState({
+    full_name: "",
+    email: "",
+    address: "",
+    phone: "",
+  });
 
   return (
     <div className="container">
       <h1 className="Title text-center">Create Contact</h1>
 
-      {/* <div className="conatiner-flex text-center ms-3">
-        <div className="Task text-center ">
-          <div className="row  justify-content-center">
-            <div className="col-md-6 col-8">
-              <form>
-                <input
-                  className="text-center form-control"
-                  placeholder="Type in the Name Here"
-                  type="text"
-                  onKeyDown={(e) => {
-                    if (e.key === "Enter") {
-                      e.preventDefault();
-                      actions.addTodoListItem(e.target.value);
-                    }
-                  }}
-                  //   value={input}
-                ></input>
-              </form>
-            </div>
-          </div>
-
-          <div className="row justify-content-center">
-            <div className="col-md-6 col-8">
-              <ul className="list-group ">
-                {store.todoListItems.map((item, index) => (
-                  <li className="list-group-item rounded" key={index}>
-                    <span className="float-start items-style">{item}</span>
-
-                    <span
-                      className="float-end text-danger"
-                      onClick={() => {
-                        actions.deleteTodoListItem(index);
-                      }}
-                    >
-                      {" "}
-                      <FontAwesomeIcon icon={faXmark}></FontAwesomeIcon>
-                    </span>
-                  </li>
-                ))}
-
-                <div className="itemFilter rounded">
-                  <h2>{store.todoListItems.length} Contacts in your List</h2>
-                </div>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div> */}
-
       <div className="row justify-content-center">
         <div className="col-md-6">
-          <form class="row g-3 ">
-            <div class="col-12">
-              <label for="inputAddress" class="form-label">
-                Full Name
-              </label>
+          <form className="row g-3 ">
+            <div className="col-12">
+              <label className="form-label">Full Name</label>
               <input
+                onChange={(e) =>
+                  setInput({ ...input, full_name: e.target.value })
+                }
                 type="text"
-                class="form-control"
+                className="form-control"
                 id="inputAddress"
                 placeholder="Full Name"
               />
             </div>
-            <div class="col-12">
-              <label for="inputAddress" class="form-label">
-                Email
-              </label>
+            <div className="col-12">
+              <label className="form-label">Email</label>
               <input
                 type="text"
-                class="form-control"
+                onChange={(e) => setInput({ ...input, email: e.target.value })}
+                className="form-control"
                 id="inputAddress"
                 placeholder="Email"
               />
             </div>
-            <div class="col-12">
-              <label for="inputAddress" class="form-label">
-                Address
-              </label>
+            <div className="col-12">
+              <label className="form-label">Address</label>
               <input
                 type="text"
-                class="form-control"
+                onChange={(e) =>
+                  setInput({ ...input, address: e.target.value })
+                }
+                className="form-control"
                 id="inputAddress"
                 placeholder="some@address.com "
               />
             </div>
-            <div class="col-12">
-              <label for="inputAddress" class="form-label">
-                Phone
-              </label>
+            <div className="col-12">
+              <label className="form-label">Phone</label>
               <input
                 type="text"
-                class="form-control"
+                onChange={(e) => setInput({ ...input, phone: e.target.value })}
+                className="form-control"
                 id="inputAddress"
                 placeholder="(999) 999-9999"
               />
             </div>
 
-            <div class="col-12">
-              <button type="submit" class="btn btn-primary">
+            {sent &&
+              (store.formMessageSuccess != "" ? (
+                <div className="alert alert-success" role="alert">
+                  {store.formMessageSuccess}
+                </div>
+              ) : null)}
+            {sent &&
+              (store.formMessageError != "" ? (
+                <div className="alert alert-danger" role="alert">
+                  {store.formMessageError}
+                </div>
+              ) : null)}
+
+            <div className="col-12">
+              <button
+                type="submit"
+                onClick={(e) => {
+                  e.preventDefault();
+                  actions.createContact(input);
+                  setSent(true);
+                }}
+                className="btn btn-primary"
+              >
                 Sign in
               </button>
             </div>

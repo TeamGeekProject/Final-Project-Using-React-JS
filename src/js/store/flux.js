@@ -1,45 +1,48 @@
 const getState = ({ getStore, getActions, setStore }) => {
   return {
     store: {
-      todoListItems: ["Raul", "Miguel", "Hernan", "Johanna"],
+      contacts: [
+        {
+          full_name: "test",
+          email: "test@gmail.com",
+          address: "someplace",
+          phone: "7864445566",
+        },
+      ],
+      agenda_slug: "teamgeekuser",
+      formMessageSuccess: "",
+      formMessageError: "",
     },
     actions: {
-      // Use getActions to call a function within a fuction
-      // exampleFunction: () => {
-      // 	getActions().changeColor(0, "green");
-      // },
-      //   loadSomeData: () => {
-      //     /**
-      // 				fetch().then().then(data => setStore({ "foo": data.bar }))
-      // 			*/
-      //   },
-      // changeColor: (index, color) => {
-      //   //get the store
-      //   const store = getStore();
-
-      //   //we have to loop the entire demo array to look for the respective index
-      //   //and change its color
-      //   const demo = store.demo.map((elm, i) => {
-      //     if (i === index) elm.background = color;
-      //     return elm;
-      //   });
-
-      //   //reset the global store
-      //   setStore({ demo: demo });
-      // },
-
-      deleteTodoListItem: (index) => {
+      createContact: async (input) => {
+        console.log(input);
         const store = getStore();
-        const todoListItems = store.todoListItems.filter(
-          (item, i) => i !== index
-        );
-        setStore({ todoListItems: todoListItems });
-      },
-
-      addTodoListItem: (item) => {
-        const store = getStore();
-        const todoListItems = store.todoListItems.concat(item);
-        setStore({ todoListItems: todoListItems });
+        const user = store.user;
+        await fetch("https://assets.breatheco.de/apis/fake/contact/", {
+          method: "POST",
+          body: JSON.stringify({
+            full_name: input.full_name,
+            email: input.email,
+            agenda_slug: store.agenda_slug,
+            address: input.address,
+            phone: input.phone,
+          }),
+          headers: {
+            "Content-Type": "application/json",
+          },
+        })
+          .then((response) => response.json())
+          .then((data) => {
+            console.log(data);
+            data.msg
+              ? (setStore({ formMessageError: data.msg }),
+                setStore({ formMessageSuccess: "" }))
+              : (setStore({ formMessageSuccess: "Contact created" }),
+                setStore({ formMessageError: "" }));
+          })
+          .catch((error) => {
+            console.log("error");
+          });
       },
     },
   };
