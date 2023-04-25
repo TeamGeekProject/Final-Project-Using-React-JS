@@ -24,7 +24,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         setStore({ contacts: data });
       },
       createContact: async (input) => {
-        console.log(input);
+        // console.log(input);
         const store = getStore();
         const user = store.user;
         await fetch("https://assets.breatheco.de/apis/fake/contact/", {
@@ -42,7 +42,7 @@ const getState = ({ getStore, getActions, setStore }) => {
         })
           .then((response) => response.json())
           .then((data) => {
-            console.log(data);
+            // console.log(data);
             data.msg
               ? (setStore({ formMessageError: data.msg }),
                 setStore({ formMessageSuccess: "" }))
@@ -67,8 +67,11 @@ const getState = ({ getStore, getActions, setStore }) => {
           .then(setStore({ contacts: contacts }))
           .catch((error) => console.log("error"));
       },
-      updateContact: async (input, contactID) => {
+      updateContact: async (input, contactID, index) => {
         const store = getStore();
+
+        const contacts = store.contacts;
+
         await fetch(
           `https://assets.breatheco.de/apis/fake/contact/${contactID}`,
           {
@@ -91,7 +94,9 @@ const getState = ({ getStore, getActions, setStore }) => {
               ? (setStore({ formMessageError: data.msg }),
                 setStore({ formMessageSuccess: "" }))
               : (setStore({ formMessageSuccess: "Contact was Updated" }),
-                setStore({ formMessageError: "" }));
+                setStore({ formMessageError: "" }),
+                (contacts[index] = data),
+                setStore({ contacts: [...contacts] }));
           })
 
           .catch((error) => console.log(error));

@@ -8,7 +8,7 @@ import React, { useState, useEffect, useContext } from "react";
 import "../../styles/todo.css";
 
 export const EditContact = () => {
-  const { contactID } = useParams();
+  const { contactID, index } = useParams();
   const { store, actions } = useContext(Context);
   const [sent, setSent] = useState(false); // this is the state that will be used to show the success message
   const [input, setInput] = useState({
@@ -17,8 +17,6 @@ export const EditContact = () => {
     address: "",
     phone: "",
   });
-
-  console.log(store);
 
   return (
     <div className="container">
@@ -90,7 +88,7 @@ export const EditContact = () => {
                 type="submit"
                 onClick={(e) => {
                   e.preventDefault();
-                  actions.updateContact(input, contactID);
+                  actions.updateContact(input, contactID, index);
                   setSent(true);
                 }}
                 className="btn btn-primary"

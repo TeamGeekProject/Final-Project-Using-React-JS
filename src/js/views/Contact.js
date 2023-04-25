@@ -20,7 +20,7 @@ export const Contact = () => {
               <h6 className="card-subtitle mb-2 text-muted">{item.email}</h6>
               <p className="card-text">{item.address}</p>
               <p className="card-text">{item.phone}</p>
-              <Link to={"/edit/" + item.id}>
+              <Link to={"/edit/" + item.id + "/" + index}>
                 <button className="btn btn-primary">Edit</button>
               </Link>
               <button
