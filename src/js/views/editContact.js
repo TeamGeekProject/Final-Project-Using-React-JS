@@ -91,7 +91,7 @@ export const EditContact = () => {
                   actions.updateContact(input, contactID, index);
                   setSent(true);
                 }}
-                className="btn btn-primary"
+                className="btn btn-primary itemFilter"
               >
                 Edit
               </button>
@@ -103,7 +103,7 @@ export const EditContact = () => {
       <br />
       <div>
         <Link to="/home">
-          <button className="btn btn-primary">Back home</button>
+          <button className="btn btn-primary itemFilter">Back home</button>
         </Link>
       </div>
       <br />

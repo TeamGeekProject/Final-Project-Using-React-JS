@@ -18,7 +18,11 @@ export const Home = (props) => {
       <br />
       <div>
         <Link to="/contact">
-          <span className="btn btn-primary btn-lg" href="#" role="button">
+          <span
+            className="btn btn-primary btn-lg itemFilter"
+            href="#"
+            role="button"
+          >
             View your Contacts
           </span>
         </Link>
@@ -26,8 +30,24 @@ export const Home = (props) => {
       <br />
       <div>
         <Link to="/add">
-          <span className="btn btn-primary btn-lg" href="#" role="button">
+          <span
+            className="btn btn-primary btn-lg itemFilter"
+            href="#"
+            role="button"
+          >
             Add a contact
+          </span>
+        </Link>
+      </div>
+      <br />
+      <div>
+        <Link to="/who">
+          <span
+            className="btn btn-primary btn-lg itemFilter"
+            href="#"
+            role="button "
+          >
+            See who made this
           </span>
         </Link>
       </div>
